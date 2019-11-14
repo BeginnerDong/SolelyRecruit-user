@@ -1,0 +1,36 @@
+
+
+.samllNav{padding: 10px 4%;}
+.samllNav .item{margin-right: 30px;}
+.samllNav .item.on{color: #398EF9;}
+
+.positionList li{border-bottom: 5px solid #F5F5F5;}
+.positionList li.myself{border-bottom: 1px solid #F5F5F5;}
+.positionList li .ll{width: 80%;}
+.positionList li .fxIcon{width: 30px; height: 38px;position: absolute; top: 0;left: 0;}
+.positionList li .fxIcon img{width: 100%; height: 100%; display: block;}
+.positionList li .rr{width: 20%;text-align: right;}	
+.positionList li .ll .Lphoto{width: 55px;height: 55px;display: block;margin-right: 10px;}
+.positionList li .ll .infor{width: 70%;}
+.positionList li .ll .infor .lable{color: #666;line-height: 16px;padding: 3px 0;}
+
+.positionList li .inviter{border-top: 1px dashed #eee; border-bottom: 1px dashed #eee;}
+.positionList li .inviter .item{width: 50%;box-sizing: border-box;}
+.positionList li .inviter .item.right{border-left: 1px solid #eee;padding-left: 40px;}
+.positionList li .inviter .userPhoto{width: 35PX; height: 35px; border-radius: 50%;margin-right: 5px;}
+.positionList li .btnB .btn{ width:60px; height: 25px; line-height: 25px;border:1px solid #eee; border-radius: 4px;margin-left: 20px;}
+.positionList li .btnB .btn.on{ color: #398EF9; border: 1px solid #398EF9;}
+.positionList li .ing{color: #ff9221;}
+
+/* 延期弹框 */
+.delayShow{padding:40px 30px;width: 80%; box-sizing: border-box;min-height: 100px;position: fixed;top: 50%;left: 50%;transform: translate(-50%,-50%); z-index: 90;}
+.delayShow .phoneIcon{width: 24px; height: 24px; display: block;margin-right: 10px;}
+
+/* 面试结果 */
+.ms-result .span{margin-right: 10px;padding: 0 5px; border-radius: 3px;}
+.ms-result .span.one{color: #398EF9;}
+.ms-result .span.two{background:#fff4e9;}
+.ms-result .span.three{background:#e8ffee;} 
+.ms-result .span.four{background:#e4f0ff;} 
+
+

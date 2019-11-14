@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="renderer" content="webkit">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<title>消息</title>
+	<script src="./js/vue.js"></script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/base.js"></script>
+	<link type="text/css" rel="stylesheet" href="css/public.css">
+	<link rel="stylesheet" type="text/css" href="css/navbar.css">
+	<link rel="stylesheet" type="text/css" href="css/NavTab.css">
+</head>
+<style>
+.tidingLists li{ align-items: flex-start;}
+.tidingLists .Lphoto{width: 18%;}
+.tidingLists .Lphoto img{width: 50px; height: 50px;display: block;}
+.tidingLists .Rinfor{width: 82%;}
+</style>
+
+<body class="pdb70">
+	<div id="app">
+		<!-- 标题 -->
+		<div class="T-head line50 center fs16 Tfix-head">消息</div>
+		<div class="h50"></div>
+		
+		<div class="tidingLists pdlr4">
+			<ul>
+				<li v-for="(item,index) in tidingData" class="flexRowBetween pdt15">
+					<div class="Lphoto">
+						<img src="images/message-img.png" >
+					</div>
+					<div class="Rinfor bordB1 pdb15">
+						<a href="tidingsDetail.html">
+							<p class="avoidOverflow3">你好,我已有1年工作经验，自合法化法律和覅挥发分混分巨发货饭到啦发哈积分自合法化法律和覅挥发分混分巨发货饭到啦发哈积分...</p>
+							<p class="color6 fs13 pdt10 flexRowBetween">
+								<span>墨之方科技</span>
+								<span class="color9">14:16</span>
+							</p>
+						</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+		
+		
+		<!--底部tab键-->
+		<div class="navbar flexRowBetween">
+			<div class="navbar_item">
+				<a href="workbench.html">
+					<div class="nav_img">
+						<img src="images/nabar1.png" />
+					</div>
+					<div class="text">工作台</div>
+				</a>
+			</div>
+			<div class="navbar_item">
+				<a href="index.html">
+					<div class="nav_img">
+						<img src="images/nabar2.png" />
+					</div>
+					<div class="text">职位</div>
+				</a>
+			</div>
+			<div class="navbar_item">
+				<a href="tidings.html">
+					<div class="nav_img">
+						<img src="images/nabar3-a.png" />
+					</div>
+					<div class="text this-text">消息</div>
+				</a>
+			</div>
+			<div class="navbar_item">
+				<a href="user.html">
+					<div class="nav_img">
+						<img src="images/nabar4.png" />
+					</div>
+					<div class="text">个人中心</div>
+				</a>
+			</div>
+		</div>
+		<!--底部tab键 end-->
+		
+	</div>
+</body>
+	
+<script type="text/javascript">
+	var app = new Vue({
+		    el: '#app',
+		    data:function(){
+		        return {
+					is_show:false,
+					mainData: [],
+					tidingData:[{},{},{},{},{}]
+		        }
+		    },
+		    onLoad() {
+		    	const self = this;
+		    	// self.$Utils.loadAll(['getMainData'], self);
+		    },
+		    methods: {
+				change(curr){
+					const self = this;
+					if(curr!=self.curr){
+						self.curr = curr
+					}
+				},
+				chageSamll(num){
+					const self = this;
+					if(num!=self.num){
+						self.num = num
+					}
+				},
+				delayShow(){
+					const self = this;
+					self.is_show = !self.is_show;
+					self.is_delayShow =!self.is_delayShow
+				},
+				getMainData() {
+					const self = this;
+					const postData = {};
+					postData.tokenFuncName = 'getProjectToken';
+					var callback = function(res){
+					    console.log('getMainData', res);
+					    self.mainData.push.apply(self.mainData,res.info.data);		        
+					};
+					self.$apis.orderGet(postData, callback);
+				}
+		    }
+		});
+</script>
+
+
+</html>

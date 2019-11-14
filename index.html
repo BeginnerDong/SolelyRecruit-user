@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="renderer" content="webkit">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<title>首页</title>
+	<script src="./js/vue.js"></script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/base.js"></script>
+	<link type="text/css" rel="stylesheet" href="css/public.css">
+	<link rel="stylesheet" type="text/css" href="css/navbar.css">
+	<link rel="stylesheet" type="text/css" href="css/NavTab.css">
+	<link rel="stylesheet" type="text/css" href="css/workbench.css">
+	<link rel="stylesheet" type="text/css" href="css/adrss.css">
+</head>
+<style>
+.positionList li{border-bottom: 1px solid #eee;}
+.seachbox{padding: 15px 4%;background: #398EF9;position: fixed;top: 50px;left: 0;width: 100%;box-sizing: border-box;}
+.seachbox .Licon{width:13px; height: 13px; display: block;}
+.seachbox .rr{width: 70%;background:#fff;border-radius: 20px;overflow: hidden;}
+.seachbox .rr .input{width: 80%;}
+.seachbox .rr .input input{width: 100%;line-height: 30px;border-radius: 20px;padding: 0 10px;box-sizing: border-box;display: block;text-align: center;}
+.seachbox .rr .seachBtn{width: 20%;height: 30px; display: block;background: url(images/home-icon2.png) no-repeat center center/16px 16px;}
+
+
+</style>
+
+<body  class="pdb70">
+	<div id="app">
+		<!-- 标题 -->
+		<div class="T-head line50 center fs16 Tfix-head">首页</div>
+		<div class="h50"></div>
+		<div class="h60"></div>
+		
+		<div class="flexRowBetween seachbox fs13">
+			<a class="flex white" href="index_jobEdit.html">
+				<img class="Licon mgr5" src="images/home-icon.png" >
+				<span>会计</span>
+				<img class="arrowR" src="images/home-icon1.png" >
+			</a>
+			<div class="flexRowBetween rr">
+				<div class="input">
+					<input type="" name="" id="" value="" placeholder="搜职位" />
+				</div>
+				<button class="seachBtn" type="button"></button>
+			</div>
+		</div>
+		
+		<div class="positionList pdlr4">
+			<ul>
+				<li v-for="item in positionDate">
+					<a class="flexRowBetween pdtb15" href="positionDetail.html">
+						<div class="flex ll">
+							<img class="Lphoto" src="images/home-img.png" >
+							<div class="infor">
+								<p class="name fs14">会计助理</p>
+								<p class="lable fs13">克莱</p>
+								<p class="color9 fs12">西安&nbsp;|&nbsp;3年&nbsp;|&nbsp;本科</p>
+							</div>
+						</div>
+						<div class="rr">
+							<div class="red mgb20 flexEnd">4K-6K</div>
+							<p class="fs12 color9 flexEnd">10月20日</p>
+						</div>
+					</a>
+					<div class="flexRowBetween pdb15 adrss mglr4">
+						<p class="flex adrssTit fs13 color6"><img class="adrsIcon mgr5" src="images/position-icon1.png"/>西安市雁塔区中投国际A座1802室</p>
+						<div class="adrssIcon flexEnd">
+							<img class="GpsIcon mgr15" src="images/workbench-icon2.png" >
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		
+		
+		<!--底部tab键-->
+		<div class="navbar flexRowBetween">
+			<div class="navbar_item">
+				<a href="workbench.html">
+					<div class="nav_img">
+						<img src="images/nabar1.png" />
+					</div>
+					<div class="text">工作台</div>
+				</a>
+			</div>
+			<div class="navbar_item">
+				<a href="index.html">
+					<div class="nav_img">
+						<img src="images/nabar2-a.png" />
+					</div>
+					<div class="text this-text">职位</div>
+				</a>
+			</div>
+			<div class="navbar_item">
+				<a href="tidings.html">
+					<div class="nav_img">
+						<img src="images/nabar3.png" />
+					</div>
+					<div class="text">消息</div>
+				</a>
+			</div>
+			<div class="navbar_item">
+				<a href="user.html">
+					<div class="nav_img">
+						<img src="images/nabar4.png" />
+					</div>
+					<div class="text">个人中心</div>
+				</a>
+			</div>
+		</div>
+		<!--底部tab键 end-->
+		
+		
+	</div>
+</body>
+	
+<script type="text/javascript">
+	var app = new Vue({
+		    el: '#app',
+		    data:function(){
+		        return {
+					is_show:false,
+					mainData: [],
+					positionDate:[{},{},{},{},{}]
+		        }
+		    },
+		    onLoad() {
+		    	const self = this;
+		    	// self.$Utils.loadAll(['getMainData'], self);
+		    },
+		    methods: {
+				getMainData() {
+					const self = this;
+					const postData = {};
+					postData.tokenFuncName = 'getProjectToken';
+					var callback = function(res){
+					    console.log('getMainData', res);
+					    self.mainData.push.apply(self.mainData,res.info.data);		        
+					};
+					self.$apis.orderGet(postData, callback);
+				}
+		    }
+		});
+</script>
+
+
+</html>

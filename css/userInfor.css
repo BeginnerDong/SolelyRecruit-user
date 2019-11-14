@@ -1,0 +1,10 @@
+
+
+/* 编辑信息 */
+.userInfor li{ border-bottom: 1px solid #eee; background: #fff;padding: 15px 0; display: flex; justify-content: flex-start; align-items: flex-start;}
+.userInfor li .ll{width: 15%;}
+.userInfor li .rr{width: 85%;}
+.userInfor li .rr input{width: 100%;display: block;}
+.userInfor li .yamTest{ }
+
+

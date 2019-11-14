@@ -1,0 +1,13 @@
+
+.compyCont .ll{width: 80%;}
+.compyCont .rr{width: 20%;}
+.compyCont li{padding: 15px 0; border-bottom: 1px solid #eee;}
+.compyCont li a{display: block;}
+.compyCont .compyLogo{width:60px; height:60px; display: block;border-radius: 50%;}
+.compyCont .adrsIcon{width: 13px; height: 13px; display: block;}
+.compyCont .GpsIcon{width: 18px; height: 18px; display: block;}
+.compyCont .HRphoto{width: 25px; height: 25px; border-radius: 50%;display: block;}
+.compyCont .lab{padding: 0 5px; background: #ffecd8; color: #ff8607; font-size: 9px;border-radius: 4px;}
+.compyCont li .dian{margin: 0 3px;}
+
+
